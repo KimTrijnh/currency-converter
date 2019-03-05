@@ -73,9 +73,34 @@ function doConvert(event) {
     }
 }
 
+  
+function updateResults(response) {
+    console.log(response);
+  }
+
+function callApi(currency) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://free.currencyconverterapi.com/api/v6/convert?q=' + currency + '_VND&compact=ultra&apiKey=0c14a3cb13dd45e95162');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            updateResults(JSON.parse(xhr.responseText));
+        }
+        else {
+            alert('Request failed.  Returned status of ' + xhr.status);
+        }
+    };
+    xhr.send();
+  }
+
+callApi('USD');
+
+
 
 //event
 btn.addEventListener('click', doConvert);
+
+
+
 // let form = document.getElementById('myform');
 // form.addEventListener('submit', doConvert);
 //console.log(radioGroup1);
