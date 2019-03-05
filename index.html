@@ -1,25 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body>
- <div class="container">
-     <div>
-         <h1>Currency Converter</h1>
-         <label for="amount">Input your amount</label>
-         <input type="text" id="amount">
-         <button>Convert</button>
-         <p>Your result go here</p>
-         <span id="result"></span>
-      
 
-     </div>
- </div>
-<script src="script.js"></script>    
+<body>
+
+    <div class="container">
+        <div class="w-50 mx-auto mt-5">
+            <h1 class="text-center">Currency Converter</h1>
+            <form>
+<div class="d-flex justify-content-start my-3">
+        <div>
+                <p>Select your currency</p>
+                <input type="radio" name="select1" id="vnd">
+                <label for="vnd">VND</label> <br>
+                <input type="radio" name="select1" id="usd">
+                <label for="usd">USD</label><br>
+                <input type="radio" name="select1" id="eur">
+                <label for="eur">EUR</label><br>
+            </div>
+
+            <div class="ml-5">
+                <p>Select output currency</p>
+                <input type="radio" name="select2" id="vnd">
+                <label for="vnd">VND</label> <br>
+                <input type="radio" name="select2" id="usd">
+                <label for="usd">USD</label><br>
+                <input type="radio" name="select2" id="eur">
+                <label for="eur">EUR</label><br>
+            </div>
+
+</div>
+               
+                <div class="form-group">
+                    <label for="amount">Input your amount:</label>
+                    <input class="form-control" type="text" id="amount">
+                </div>
+
+                <button class="btn btn-success" id="btn">Convert</button>
+                <div class="message border border-primary rounded bg-info py-3 mt-3 p-3">
+                    <p>Your result go here</p>
+                    <span id="message"></span>
+                </div>
+
+
+            </form>
+
+        </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
 </body>
+
 </html>
