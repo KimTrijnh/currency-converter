@@ -28,7 +28,8 @@ const allMoney = {
         rate: 12000,
     }
 };
-console.log(radioGroup1);
+
+
 let selectedRadio1;
 let selectedRadio2;
 let currency1;
@@ -37,6 +38,7 @@ let rate1;
 let rate2;
 
 for (let i = 0; i < radioGroup1.length; i++) {
+    
     radioGroup1[i].addEventListener('click', function () {
         selectedRadio1 = radioGroup1[i];
         currency1 = selectedRadio1.id.toUpperCase();
@@ -52,7 +54,6 @@ for (let i = 0; i < radioGroup2.length; i++) {
         selectedRadio2 = radioGroup2[i];
         currency2 = selectedRadio2.id.toUpperCase();
         rate2 = allMoney[selectedRadio2.id].rate;
-       
     //    alert(currency2);
     //     alert(rate2);
     });
@@ -64,7 +65,12 @@ function doConvert(event) {
     let outputAmount = inputAmount * rate1/rate2;
     //alert(outputAmount);
     
-    message.innerHTML = `${inputAmount} ${currency1} is ${outputAmount} ${currency2}`;
+    if(isNaN(inputAmount) || inputAmount <0 || selectedRadio1 === undefined || selectedRadio2 === undefined) {
+        message.innerHTML = `please correct your input`;
+    }
+    else {
+        message.innerHTML = `${inputAmount} ${currency1} is ${outputAmount} ${currency2}`;
+    }
 }
 
 
@@ -72,3 +78,10 @@ function doConvert(event) {
 btn.addEventListener('click', doConvert);
 // let form = document.getElementById('myform');
 // form.addEventListener('submit', doConvert);
+//console.log(radioGroup1);
+
+//test 
+//1. convert from 1000 vnd to usd
+//2. convert from 1000 usd to vnd
+//3. not enter input currency/output currency
+//4. input amount not a number or negative
